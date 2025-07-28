@@ -1,89 +1,88 @@
-# 🦠 COVID-19 Data Analysis and Visualization Project
+# 🦠 COVID-19 India Data Analysis Project
 
-This project is a comprehensive analysis of the COVID-19 pandemic using real-world data. The goal is to understand how the virus spread across the globe, how countries responded, and what insights can be drawn from trends in cases, deaths, testing, and other health indicators.
-
----
-
-## 📌 Project Objectives
-
-- Analyze COVID-19 cases, deaths, and testing data globally.
-- Clean and preprocess raw datasets for accurate analysis.
-- Perform exploratory data analysis (EDA) to uncover trends and patterns.
-- Visualize data through clear and informative plots.
-- Compare country-level and continent-level COVID-19 responses.
-- Generate insights based on statistical summaries and visual findings.
+This project provides an in-depth analysis of the COVID-19 situation in India using real-world data. The analysis includes state-wise comparisons, trend visualizations, and calculated metrics like recovery and mortality rates to understand the pandemic’s evolution and impact.
 
 ---
 
-## 📂 Project Structure
+## 📌 Objectives
 
-
----
-
-## 📊 What We Did
-
-### ✅ Data Collection
-
-We used a publicly available dataset from [Our World in Data](https://ourworldindata.org/coronavirus), which includes:
-
-- Daily confirmed cases
-- Death counts
-- Testing rates
-- Vaccination statistics
-- Demographic and healthcare metrics
-
-### ✅ Data Cleaning and Preprocessing
-
-- Removed unnecessary columns.
-- Handled missing and inconsistent values.
-- Converted date strings to datetime objects.
-- Aggregated and grouped data by country and continent.
-
-### ✅ Exploratory Data Analysis (EDA)
-
-- Trend analysis of daily and cumulative cases and deaths.
-- Identification of peak periods and wave patterns.
-- Comparison of COVID-19 trends by country/continent.
-- Analysis of death rates vs. testing and vaccination levels.
-- Correlation between population density, GDP, hospital beds, etc., with COVID-19 outcomes.
-
-### ✅ Data Visualization
-
-We used `Matplotlib` and `Seaborn` to create:
-
-- Line charts of daily new cases and deaths.
-- Bar plots comparing top affected countries.
-- Heatmaps showing correlation between features.
-- Histograms and boxplots for distribution analysis.
+- Load and clean COVID-19 datasets specific to India.
+- Analyze daily trends in confirmed, cured, and death cases.
+- Visualize state-wise active cases and death counts.
+- Calculate recovery and mortality rates.
+- Identify top affected states and compare time series trends.
+- Analyze vaccination data alongside case statistics.
 
 ---
 
-## 📈 Sample Visualizations
+## 📂 Dataset Sources
 
-![Cases Over Time](images/cases_trend.png)
-![Top Countries by Deaths](images/deaths_top_countries.png)
-![Correlation Heatmap](images/correlation_heatmap.png)
-
-> (Make sure these images exist in your `images/` folder or replace with actual file names.)
+- **COVID-19 India Cases Dataset**: Contains daily confirmed, cured, and death counts by state.
+- **Vaccination Dataset**: Contains state-wise vaccine distribution data.
 
 ---
 
-## 🧪 Tools & Libraries Used
+## 🧪 Technologies Used
 
 - **Python 3**
+- **Pandas** – data manipulation
+- **NumPy** – numerical operations
+- **Matplotlib & Seaborn** – static data visualizations
+- **Plotly** – interactive plots
 - **Jupyter Notebook**
-- **Pandas**
-- **NumPy**
-- **Matplotlib**
-- **Seaborn**
 
 ---
 
-## 📥 How to Run This Project
+## 📊 Project Workflow
 
-### 1. Clone the Repository
+### 1. Data Import and Exploration
 
-```bash
-git clone https://github.com/yourusername/covid-project.git
-cd covid-project
+- Loaded COVID-19 case data and vaccination data from CSV files.
+- Inspected data with `.head()`, `.info()`, and `.describe()`.
+
+### 2. Data Cleaning
+
+- Dropped irrelevant columns such as `Sno`, `Time`, `ConfirmedIndianNational`, and `ConfirmedForeignNational`.
+- Created a new column `Active_cases` using:
+
+
+### 3. State-wise Aggregation
+
+- Created a pivot table to summarize max `Confirmed`, `Deaths`, and `Cured` by state.
+- Calculated:
+- **Recovery Rate** = `(Cured / Confirmed) * 100`
+- **Mortality Rate** = `(Deaths / Confirmed) * 100`
+- Sorted data by `Confirmed` cases in descending order.
+
+### 4. Visualizations
+
+- **Bar Plot** of Top 10 states with the most active cases.
+- **Bar Plot** of Top 10 states with the highest deaths.
+- **Line Plot** showing the trend of active cases over time in key states like:
+- Maharashtra
+- Karnataka
+- Kerala
+- Tamil Nadu
+- Uttar Pradesh
+
+- Used Plotly for interactive visualizations (e.g., trend analysis).
+
+### 5. Time Series Analysis
+
+- Converted the `Date` column to datetime format.
+- Extracted the `month` for temporal analysis.
+- Created monthly trends using seaborn’s line plots.
+
+---
+
+## 📈 Sample Insights
+
+- **Maharashtra** had the highest number of confirmed and death cases.
+- **Kerala** showed consistently high active cases with strong recovery.
+- **Top states** with active cases and deaths were visualized to show their trends clearly.
+- **Recovery rates** were high in most states but mortality varied depending on healthcare and response.
+
+---
+
+
 
